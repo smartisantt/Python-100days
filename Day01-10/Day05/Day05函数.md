@@ -1,3 +1,11 @@
+> Author: 陈伦巨
+>
+> Data: 2019-03-25
+>
+> Email: 545560793@qq.com
+>
+> github: https://github.com/smartisantt
+
 ## 一、函数
 
 ##### 1、什么是函数
@@ -213,13 +221,6 @@ my_sum(a = 1)
 # <class 'dict'>
 ```
 
-```python
-def my_sum2(**nums):
-    total = 0
-    for key in nums:
-        total += nums[key]
-    print(total)
-```
 
 注意：
 
@@ -282,3 +283,56 @@ print(type(fun3()))
 ##### 3、怎么确定函数是否需要返回值
 
 函数执行完成后是否产生新的数据，如果产生新的数据就将这个数据用return返回。
+
+## 四、练习
+
+##### 1.计算5的阶乘 5!的结果是
+
+```python
+fact_number = 5
+result = 1
+while fact_number:
+    result *= fact_number
+    fact_number -= 1
+print(result)
+```
+
+##### 2.求1+2!+3!+...+20!的和 
+
+1.程序分析：此程序只是把累加变成了累乘。
+
+```python
+for number in range(1, 21):
+    fact_result = 1
+    while number:
+        fact_result *= number
+        number -= 1
+    result += fact_result
+print(result)
+```
+
+##### 3.计算 1+1/2!+1/3!+1/4!+...1/20!=?
+
+```python
+result = 0
+for number in range(1, 21):
+    fact_result = 1
+    while number:
+        fact_result *= number
+        number -= 1
+    result += 1/fact_result
+print(result)
+```
+
+
+
+##### 4.循环输入大于0的数字进行累加，直到输入的数字为0，就结束循环，并最后输出累加的结果。
+
+```python
+numbers = []
+number = int(input('请输入大于0的数字：'))
+while number != 0:
+    numbers.append(number)
+    number = int(input('请输入大于0的数字：'))
+print('输入累加的结果',sum(numbers))
+```
