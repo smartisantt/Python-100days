@@ -125,8 +125,22 @@ $ sudo rm -rf /var/lib/docker
 Docker安装mysql
 
 ```
+# 安装最新的mysql
 docker pull mysql
-
+# 运行
 docker run -itd -p 8036:3306 --name test_mysql -v /root/mysqlData:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=hbb123 mysql
+# 进入
+docker exec -it test_mysql mysql -uroot -p
+```
+
+Docker安装redis
+
+```
+# 安装
+docker pull redis
+# 运行
+docker run -p 8079:6379 --name=test_redis -v /root/redisData:/data -d redis redis-server --appendonly yes --requirepass 'hbb123'
+# 进入redis
+docker exec -it test_redis redis-cli
 ```
 
