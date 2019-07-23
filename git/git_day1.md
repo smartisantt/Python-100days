@@ -52,7 +52,7 @@ Git的作者是 Linus Torvalds（林纳斯·托瓦兹，同时也是 Linux 之�
 
 ##### 4、Ubuntu 安装Git
 
-`sudo apt-get install git
+`sudo apt-get install git`
 
 
 
