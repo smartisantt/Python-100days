@@ -128,7 +128,7 @@ Docker安装mysql
 # 安装最新的mysql
 docker pull mysql
 # 运行
-docker run -itd -p 8036:3306 --name test_mysql -v /root/mysqlData:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=hbb123 mysql
+docker run -itd -p 3306:3306 --name test_mysql -v /root/mysqlData:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=hbb123 mysql
 # 进入
 docker exec -it test_mysql mysql -uroot -p
 ```
@@ -139,20 +139,47 @@ Docker安装redis
 # 安装
 docker pull redis
 # 运行
-docker run -p 8079:6379 --name=test_redis -v /root/redisData:/data -d redis redis-server --appendonly yes --requirepass 'hbb123'
+docker run -p 6379:6379 --name=test_redis -v /root/redisData:/data -d redis redis-server --appendonly yes --requirepass 'hbb123'
 # 进入redis
 docker exec -it test_redis redis-cli
 ```
+
+安装Python
+
+ ```
+docker pull python:3.6
+ ```
+
+
+
+Dockfile 配置
+
+```
+FROM python:3.6
+
+RUN pwd
+
+ADD storybook_sever /storybook_sever
+
+WORKDIR /storybook_sever
+
+RUN pip install -r requirements.txt
+
+EXPOSE 8000
+```
+
+注意：Dockerfile  和storybook_sever  两个文件 是同级文件。                                                                                                          `
 
 
 
 打包Django项目
 
 ```
-docker build -t story:1.0 . # 注意： 最后的那个点不能少
+docker build -t story:1 . # 注意： 最后的那个点不能少
 docker images # 查看打包好的镜像
 
-docker run -it -p 8000:8000 --name story -v /root/storyData:/app story:1.0
+docker run -it -p 8000:8000 --name story -v /root/storyData:/app story:1 python manage.py runserver 0.0.0.0:8000
+
 ```
 
 
