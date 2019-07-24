@@ -144,3 +144,16 @@ docker run -p 8079:6379 --name=test_redis -v /root/redisData:/data -d redis redi
 docker exec -it test_redis redis-cli
 ```
 
+
+
+打包Django项目
+
+```
+docker build -t story:1.0 . # 注意： 最后的那个点不能少
+docker images # 查看打包好的镜像
+
+docker run -it -p 8000:8000 --name story -v /root/storyData:/app story:1.0
+```
+
+
+
