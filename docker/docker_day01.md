@@ -85,7 +85,7 @@ sudo yum -y install docker-ce
 [root@iz2zedqzq67rmtoql43bqvz ~]# docker run hello-world
 ```
 
-![测试运行 hello-world](D:\python-100days\Python-100days\docker\res\docker_hello_world.png)
+![测试运行 hello-world](https://github.com/smartisantt/Python-100days/blob/master/docker/res/docker_hello_world.png?raw=true)
 
 由于本地没有hello-world这个镜像，所以会下载一个hello-world的镜像，并在容器内运行。
 
