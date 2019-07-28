@@ -159,11 +159,11 @@ FROM python:3.6
 
 RUN pwd
 
-ADD storybook_sever /storybook_sever
+COPY RABC /RABC
 
-WORKDIR /storybook_sever
+WORKDIR /RABC
 
-RUN pip install -r requirements.txt
+RUN pip install -r /RABC/requirements.txt -i https://pypi.douban.com/simple
 
 EXPOSE 8000
 ```
@@ -178,7 +178,7 @@ EXPOSE 8000
 docker build -t story:1 . # 注意： 最后的那个点不能少
 docker images # 查看打包好的镜像
 
-docker run -it -p 8000:8000 --name story -v /root/storyData:/app story:1 python manage.py runserver 0.0.0.0:8000
+docker run -it -p 8000:8000 --name rabc -v /root/docker_test/:/root rabc:4 python /root/RABC/manage.py runserver 0.0.0.0:8000
 
 ```
 
