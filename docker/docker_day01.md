@@ -1,4 +1,12 @@
- 
+ > Author: 陈伦巨
+ >
+ > Data: 2019-07-26
+ >
+ > Email: 545560793@qq.com
+ >
+ > github: https://github.com/smartisantt
+
+
 
 #### Docker简介
 
@@ -64,7 +72,9 @@ $ sudo yum remove docker \
 添加软件源信息
 
 ```
-![docker_hello_world](D:\python-100days\Python-100days\docker\res\docker_hello_world.png)sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+sudo yum-config-manager 
+--add-repo 
+http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 ```
 
 更新yum缓存
