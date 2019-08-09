@@ -139,8 +139,14 @@ Docker安装mysql
 docker pull mysql
 # 运行
 docker run -itd -p 3306:3306 --name test_mysql -v /root/mysqlData:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=hbb123 mysql
+# 拷贝配置文件
+docker cp test_mysql:/etc/mysql/my.cnf /root/mysql/conf/mysql.conf
 # 进入
 docker exec -it test_mysql mysql -uroot -p
+
+use mysql
+grant all privileges on *.*  to 'root'@'%'; 
+flush privileges; 
 ```
 
 Docker安装redis
