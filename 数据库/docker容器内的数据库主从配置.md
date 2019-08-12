@@ -32,7 +32,7 @@ docker pull mysql
 
 查看Mysql的版本信息：
 
-![](D:\python-100days\Python-100days\数据库\res\1565597202(1).jpg)
+![](https://github.com/smartisantt/Python-100days/blob/master/%E6%95%B0%E6%8D%AE%E5%BA%93/res/1565597202(1).jpg?raw=true)
 
 
 
@@ -58,11 +58,11 @@ docker pull mysql
 
 使用Navicat连接数据库，出现如下错误（看对应的IP和端口是否输入正确，如果是阿里云则是否开启了此端口）
 
-![](D:\python-100days\Python-100days\数据库\res\1565597815(1).jpg)
+![](https://github.com/smartisantt/Python-100days/blob/master/%E6%95%B0%E6%8D%AE%E5%BA%93/res/1565597815(1).jpg?raw=true)
 
 如果是以下错误：
 
-![](D:\python-100days\Python-100days\数据库\res\1565598919(1).jpg)
+![](https://github.com/smartisantt/Python-100days/blob/master/%E6%95%B0%E6%8D%AE%E5%BA%93/res/1565598919(1).jpg?raw=true)
 
 解决方案如下：
 
@@ -137,7 +137,7 @@ relay_log=edu-mysql-relay-bin
 
 在Master进入mysql，执行`show master status;`
 
-![](D:\python-100days\Python-100days\数据库\res\1565596510(1).png)
+![](https://github.com/smartisantt/Python-100days/blob/master/%E6%95%B0%E6%8D%AE%E5%BA%93/res/1565596510(1).png?raw=true)
 
 File和Position字段的值后面将会用到，在后面的操作完成之前，需要保证Master库不能做任何操作，否则将会引起状态变化，File和Position字段的值变化。
 
@@ -151,7 +151,7 @@ change master to master_host='39.105.49.244', master_user='slave', master_passwo
 
 在Slave 中的mysql终端执行`show slave status \G;`用于查看主从同步状态。
 
-![](D:\python-100days\Python-100days\数据库\res\1565596812(1).jpg)
+![](https://github.com/smartisantt/Python-100days/blob/master/%E6%95%B0%E6%8D%AE%E5%BA%93/res/1565596812(1).jpg?raw=true)
 
 
 
@@ -161,7 +161,7 @@ change master to master_host='39.105.49.244', master_user='slave', master_passwo
 
 正常情况如下：SlaveIORunning 和 SlaveSQLRunning 都是Yes，说明主从复制已经开启。此时可以测试数据同步是否成功。
 
-![](D:\python-100days\Python-100days\数据库\res\1565596599(1).jpg)
+![](https://github.com/smartisantt/Python-100days/blob/master/%E6%95%B0%E6%8D%AE%E5%BA%93/res/1565596599(1).jpg?raw=true)
 
 
 
@@ -169,7 +169,7 @@ change master to master_host='39.105.49.244', master_user='slave', master_passwo
 
 如果出现	
 
-![](D:\python-100days\Python-100days\数据库\res\1565596709(1).jpg)
+![](https://github.com/smartisantt/Python-100days/blob/master/%E6%95%B0%E6%8D%AE%E5%BA%93/res/1565596709(1).jpg?raw=true)
 
 使用`start slave`开启主从复制过程后，如果SlaveIORunning一直是Connecting，则说明主从复制一直处于连接状态，可以看到报错信息。
 
