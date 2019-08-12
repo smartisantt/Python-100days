@@ -139,13 +139,15 @@ Docker安装mysql
 docker pull mysql
 # 运行
 docker run -itd -p 3306:3306 --name test_mysql -v /root/mysqlData:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=hbb123 mysql
-# 拷贝配置文件
-docker cp test_mysql:/etc/mysql/my.cnf /root/mysql/conf/mysql.conf
-# 进入
-docker exec -it test_mysql mysql -uroot -p
 
-use mysql
+# 如用 Navicat 远程连接Docker容器中的mysql 报错：1251 - Client does not support authentication protocol 解决办法如下。
+# 对远程连接进行授权
 grant all privileges on *.*  to 'root'@'%'; 
+# 更改密码的加密规则
+ALTER USER 'root'@'%' IDENTIFIED BY 'password' PASSWORD EXPIRE NEVER;
+# 更改root的密码
+ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123456'; 
+# 刷新权限
 flush privileges; 
 ```
 

@@ -1,3 +1,35 @@
+> Author: 陈伦巨
+>
+> Data: 2019-08-09
+>
+> Email: 545560793@qq.com
+>
+> github: https://github.com/smartisantt
+
+
+
+## SQL注入
+
+![](https://github.com/smartisantt/Python-100days/blob/master/%E6%95%B0%E6%8D%AE%E5%BA%93/res/exploits_of_a_mom.png?raw=true)
+
+
+
+上面的图片来自：<https://bobby-tables.com/>，下面的对话就是关于SQL注入。
+
+**School**: Hi, this is your son's school. We're having some computer trouble.
+
+**Mom**: Oh, dear -- Did he break something?
+
+**School**: In a way. Did you really name your son `Robert'); DROP TABLE Students;--`?
+
+**Mom**: Oh. Yes. Little Bobby Tables we call him.
+
+**School**: Well, we've lost this year's student records. I hope you're happy.
+
+**Mom**: And I hope you've learned to sanitize your database inputs.
+
+
+
 ```python
 import pymysql
 
@@ -162,6 +194,33 @@ Input:Mac
 Input:Mac' -- aaa
 ()
 ```
+
+
+
+### 总结：
+
+不要使用拼接字符串的格式，容易被SQL注入：
+
+```python
+cmd = "update people set name='%s' where id='%s'" % (name, id)
+curs.execute(cmd)
+```
+
+建议使用：
+
+```python
+cmd = "update people set name=%s where id=%s"
+curs.execute(cmd, (name, id))
+```
+
+如果查询参数只有一个变量的时候：
+
+```python
+cmd = "SELECT * FROM PEOPLE WHERE name = %s"
+curs.execute(cmd, (name,))
+```
+
+
 
 
 
