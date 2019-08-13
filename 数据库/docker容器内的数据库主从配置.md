@@ -98,6 +98,8 @@ flush privileges;
 server-id=100  
 ## 开启二进制日志功能，可以随便取（关键）
 log-bin=mysql-bin
+# 修改数据库的时区
+default-time-zone = '+8:00'
 ```
 
 
@@ -129,6 +131,8 @@ server-id=101
 log-bin=mysql-slave-bin   
 ## relay_log配置中继日志
 relay_log=edu-mysql-relay-bin 
+# 修改数据库的时区
+default-time-zone = '+8:00'
 ```
 
 
@@ -204,3 +208,4 @@ start slave;
 ```
 
 ##### MySQL主从同步报错故障处理记录可以参考：<https://blog.51cto.com/hujiangtao/1932166>
+
