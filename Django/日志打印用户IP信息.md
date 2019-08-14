@@ -135,7 +135,7 @@ logger.info( remote_info + ' URL:' + request.path + ' METHOD:' + request.method 
 
 如果此时在日志中查看：打印的日志全是`REMOTE_ADDR:172.18.0.1`，则没有正确的获取用户的IP信息。
 
-![](D:\python-100days\Python-100days\Django\res\日志信息.png)
+![](https://github.com/smartisantt/Python-100days/blob/master/Django/res/%E6%97%A5%E5%BF%97%E4%BF%A1%E6%81%AF.png?raw=true)
 
 
 
