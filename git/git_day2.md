@@ -60,8 +60,6 @@
 | `git status` | 显示工作目录和暂存区的状态       |
 | `git log`    | 显示项目历史的信息               |
 | `git diff`   | 修改之后还没有暂存起来的变化内容 |
-|              |                                  |
-|              |                                  |
 
 
 
@@ -125,3 +123,17 @@ master and dev both add this line!!
 ```
 
 然后`git add .`，`git commit`，就解决了冲突。注意：此时我们是在master上对a.txt文件做修改，修改的内容并不会影响到dev分支的a.txt文件中的内容。
+
+
+
+#### 场景三：远程有分支，本地没有分支
+
+如果远程新建了一个分支，本地没有该分支，可以用`git checkout --track origin/branch_name`，这时候本地会新建一个分支名叫`branch_name`，会自动跟踪远程的同名分支`branch_name`。
+
+
+
+
+
+#### 场景四：本地有分支，远程没有分支
+
+如果本地新建了一个分支`branch_name`，但是在远程没有，这时候`push`和`pull`指令就无法确定该跟踪谁,一般来说我们都会使其跟踪远程同名分支，所以可以利用`git push --set-upstream origin branch_name`，这样就可以自动在远程创建一个`branch_name`分支，然后本地分支会`track`该分支。后面再对该分支使用`push`和`pull`就自动同步。无需再指定分支。
